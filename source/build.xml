@@ -2,11 +2,11 @@
 <project name="Guava.makejar" default="makejar" basedir=".">
   <target name ="makejar" description="Create a jar for the Guava project">
       <javac srcdir="."
-      destdir="../build"
-      classpath="guava-14.0.1.jar"
+      destdir="../bin"
+      classpath="../dependencies/guava-14.0.1.jar"
       debug="on"
       source="1.4"
       />
-    <jar jarfile="out.jar" includes="*.class" basedir="../build"/>
+    <jar jarfile="out.jar" includes="*.class" basedir="../bin"/>
   </target>
 </project>
