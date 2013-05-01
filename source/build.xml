@@ -5,7 +5,7 @@
       destdir="../bin"
       classpath="../dependencies/guava-14.0.1.jar"
       debug="on"
-      source="1.4"
+      source="1.7"
       />
     <jar jarfile="out.jar" includes="*.class" basedir="../bin"/>
   </target>
