@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Guava.makejar" default="makejar" basedir=".">
-  <target name ="makejar" description="Create a jar for the Guava project">
-      <javac srcdir="."
-      destdir="../bin"
-      classpath="../dependencies/guava-14.0.1.jar"
+<project name="testBuild" default="test" basedir="..">
+  <target name ="compile">
+      <mkdir dir="./bin"/>
+      <path id="master-classpath">
+          <fileset dir="./dependencies/">
+              <include name="*.jar"/>
+          </fileset>
+      </path>
+      <javac destdir="./bin/"
       debug="on"
+<<<<<<< HEAD
       source="1.7"
       />
     <jar jarfile="out.jar" includes="*.class" basedir="../bin"/>
   </target>
+=======
+      source="1.7">
+      <src path="."/>
+      <classpath refid="master-classpath"/>
+            </javac>
+      </target>
+    <target name ="createJAR" depends="compile">
+        <jar jarfile="out.jar" includes="*.class" basedir="./bin"/>
+        </target>
+    <target name="test" depends="compile">
+        <junit>
+            <classpath refid="master-classpath" />
+            <formatter type="brief" usefile="false" />
+            <test name="TestJunit" />
+        </junit>
+    </target>
+>>>>>>> develop
 </project>
